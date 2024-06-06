@@ -41,51 +41,48 @@ const DisplayName = () => {
     
     return (
         <>
-            <h1>Full Name Display</h1>
-            <form 
-                onSubmit={handleSubmit}
-               >
-                <p>
+        <h1>Full Name Display</h1>
 
-                    First Name:{" "} 
-                    <input type="text" value={firstname}
-                        onChange={(e) => handleInputChange(e, "firstname")}/>   
-                    {
-                    error.firstname &&
-                    <p style={{display: "flex", alignItems: "center", marginLeft: "90px", border: "1px solid black", width: "10%"}}>
-                        <RiFileWarningFill style={{color: "orange", padding: "2px"}}/> Please fill this field.
-                    </p>
-                    }  
+        <form onSubmit={handleSubmit}>
 
-                </p>
-                <p>
+          <div>
+            <label htmlFor="firstname">First Name:</label>
+            <input
+              id="firstname"
+              type="text"
+              value={firstname}
+              onChange={(e) => handleInputChange(e, "firstname")}
+            />
+            {error.firstname && (
+              <div style={{ display: "flex", alignItems: "center", border: "1px solid black", width: "50%" }}>
+                <RiFileWarningFill style={{ color: "orange", padding: "2px" }} />
+                Please fill this field.
+              </div>
+            )}
+          </div>
 
-                    Last Name:{" "} 
-                    <input type="text" value={lastname}
-                        onChange={(e) => handleInputChange(e, "lastname")}/>
-                    {
-                    error.lastname &&
-                    <p style={{display: "flex", alignItems: "center", marginLeft: "90px", border: "1px solid black", width: "10%"}}>
-                        <RiFileWarningFill style={{color: "orange", padding: "2px"}}/> Please fill this field.
-                    </p>
-                    }  
-
-                </p>
-                
-                    <button
-                        type="submit"
-                    >
-                        Submit
-                    </button>
-
-                    {
-                        submit && (
-                            <form>Full Name : {firstname} {lastname}</form>
-                        )
-                    }
-                                                    
-            </form>
-        </>
+          <div>
+            <label htmlFor="lastname">Last Name:</label>
+            <input
+              id="lastname"
+              type="text"
+              value={lastname}
+              onChange={(e) => handleInputChange(e, "lastname")}
+            />
+            {error.lastname && (
+              <div style={{ display: "flex", alignItems: "center", border: "1px solid black", width: "50%" }}>
+                <RiFileWarningFill style={{ color: "orange", padding: "2px" }} />
+                Please fill this field.
+              </div>
+            )}
+          </div>
+          
+          <button type="submit">Submit</button>
+          {submit && (
+            <p id="full-name">Full Name: {firstname} {lastname}</p>
+          )}
+        </form>
+      </>
     )
 }
 
