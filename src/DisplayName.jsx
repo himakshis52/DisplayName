@@ -17,8 +17,8 @@ const DisplayName = () => {
             setLastname(value);
         }
     }
-
-    const haldleSubmit = (e) => {
+ 
+    const handleSubmit = (e) => {
 
         e.preventDefault();
 
@@ -41,11 +41,12 @@ const DisplayName = () => {
         <>
             <h1>Full Name Display</h1>
             <form 
-                onSubmit={haldleSubmit}
+                onSubmit={handleSubmit}
                >
                 <p>
 
-                    First Name: <input type="text" value={firstname}
+                    First Name: {" "}
+                    <input type="text" value={firstname}
                         onChange={(e) => handleInputChange(e, "firstname")}/>   
                     {
                     error.firstname &&
@@ -57,7 +58,8 @@ const DisplayName = () => {
                 </p>
                 <p>
 
-                    Last Name: <input type="text" value={lastname}
+                    Last Name: {" "}
+                    <input type="text" value={lastname}
                         onChange={(e) => handleInputChange(e, "lastname")}/>
                     {
                     error.lastname &&
