@@ -25,23 +25,26 @@ const DisplayName = () => {
                 onSubmit={handleSubmit}
                 style={{ display: "flex", flexDirection:"column"}}
                >
-                <label>
+                <label htmlFor="firstname">
                     First Name:
-                    <input type="text" required={true}
+                    </label>
+                    
+                    <input type="text" required={true} id="firstname"
                         onChange={(e) => setFirstname(e.target.value)}/>   
                       
 
-                </label>
               
-                <label>
+              
+                <label htmlFor="lastname">
 
                     Last Name:
-                    <input type="text" value={lastname} required={true}
-                        onChange={(e) => setLastname(e.target.value)}/>
                     </label>
+                    <input type="text" value={lastname} required={true} id="lastname"
+                        onChange={(e) => setLastname(e.target.value)}/>
+                    
                 
                     <button
-                    style={{ width: "8%" }}
+                    style={{ width: "8%"}}
                         type="submit"
                     >
                         Submit
