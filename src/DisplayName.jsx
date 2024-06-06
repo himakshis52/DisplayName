@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RiFileWarningFill } from "react-icons/ri";
+
 
 
 const DisplayName = () => {
@@ -7,35 +7,14 @@ const DisplayName = () => {
     const [ firstname, setFirstname ] = useState("");
     const [ lastname, setLastname ] = useState("");
     const [ submit, setSubmit ] = useState(false);
-    const [ error, setError ] = useState({ firstname: false, lastname: false });
-
-    const handleInputChange = (e, field) => {
-        const value = e.target.value;
-        if (field === "firstname") {
-            setFirstname(value);
-            setError({ ...error, firstname: value.trim() === "" });
-        } else if (field === "lastname") {
-            setLastname(value);
-            setError({ ...error, lastname: value.trim() === "" && firstname.trim() !== "" });
-        }
-    }
+   
+    
  
     const handleSubmit = (e) => {
 
         e.preventDefault();
 
-        const newError = {
-            firstname: firstname.trim() === "",
-            lastname: lastname.trim() === "" && firstname.trim() !== ""
-        };
-
-        setError(newError);
-
-        if(!newError.firstname && !newError.lastname){
-            setSubmit(true);
-        }else{
-            setSubmit(false);
-        }
+        setSubmit(true)
 
     }
     
@@ -44,38 +23,25 @@ const DisplayName = () => {
             <h1>Full Name Display</h1>
             <form 
                 onSubmit={handleSubmit}
+                style={{ display: "flex", flexDirection:"column"}}
                >
-                <p>
+                <label>
                     First Name:
-                    <input type="text" value={firstname}
-                        onChange={(e) => handleInputChange(e, "firstname")}/>   
-                    {
-                    error.firstname &&
-                    <p style={{display: "flex", alignItems: "center", marginLeft: "90px", border: "1px solid black", width: "10%"}}>
-                        <RiFileWarningFill style={{color: "orange", padding: "2px"}}/>
-                        Please fill this field.
-                    </p>
-                    }  
+                    <input type="text" required={true}
+                        onChange={(e) => setFirstname(e.target.value)}/>   
+                      
 
-                </p>
-                <br/>
-                <p>
+                </label>
+              
+                <label>
 
                     Last Name:
-                    <input type="text" value={lastname}
-                        onChange={(e) => handleInputChange(e, "lastname")}/>
-                    {
-                    error.lastname &&
-                    <p style={{display: "flex", alignItems: "center", marginLeft: "90px", border: "1px solid black", width: "10%"}}>
-                        <RiFileWarningFill style={{color: "orange", padding: "2px"}}/>
-                        Please fill this field.
-                    </p>
-                    }  
-
-                </p>
-                <br/>
+                    <input type="text" value={lastname} required={true}
+                        onChange={(e) => setLastname(e.target.value)}/>
+                    </label>
                 
                     <button
+                    style={{ width: "8%" }}
                         type="submit"
                     >
                         Submit
@@ -84,7 +50,7 @@ const DisplayName = () => {
                     {
                         submit && (
                             <div>
-                                <p>Full Name: {firstname} {lastname}</p>
+                                <h4>Full Name: {firstname} {lastname}</h4>
                             </div>
                             
                         )
