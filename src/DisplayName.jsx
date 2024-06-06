@@ -57,7 +57,9 @@ const DisplayName = () => {
 
                 </p>
                 
-                    <button>
+                    <button
+                        type="submit"
+                    >
                         Submit
                     </button>
 
