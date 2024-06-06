@@ -82,7 +82,10 @@ const DisplayName = () => {
 
                     {
                         submit && (
-                            <p id="full-name">Full Name : {firstname} {lastname}</p>
+                            <div>
+                                <p>Full Name : {firstname} {lastname}</p>
+                            </div>
+                            
                         )
                     }
                                                     
