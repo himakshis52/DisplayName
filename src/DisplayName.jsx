@@ -7,7 +7,16 @@ const DisplayName = () => {
     const [ firstname, setFirstname ] = useState("");
     const [ lastname, setLastname ] = useState("");
     const [ submit, setSubmit ] = useState(false);
-    const [ error, setError ] = useState({ firstname: false, lastname: false })
+    const [ error, setError ] = useState({ firstname: false, lastname: false });
+
+    const handleInputChange = (e, field) => {
+        const value = e.target.value;
+        if (field === "firstname") {
+            setFirstname(value);
+        } else if (field === "lastname") {
+            setLastname(value);
+        }
+    }
 
     const haldleSubmit = (e) => {
 
@@ -36,7 +45,8 @@ const DisplayName = () => {
                >
                 <p>
 
-                    First Name: <input type="text" onChange={(e) => setFirstname(e.target.value)}/>   
+                    First Name: <input type="text" value={firstname}
+                        onChange={(e) => handleInputChange(e, "firstname")}/>   
                     {
                     error.firstname &&
                     <p style={{display: "flex", alignItems: "center", marginLeft: "90px", border: "1px solid black", width: "10%"}}>
@@ -47,7 +57,8 @@ const DisplayName = () => {
                 </p>
                 <p>
 
-                    Last Name: <input type="text" onChange={(e) => setLastname(e.target.value)}/>
+                    Last Name: <input type="text" value={lastname}
+                        onChange={(e) => handleInputChange(e, "lastname")}/>
                     {
                     error.lastname &&
                     <p style={{display: "flex", alignItems: "center", marginLeft: "90px", border: "1px solid black", width: "10%"}}>
