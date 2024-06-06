@@ -49,8 +49,7 @@ const DisplayName = () => {
 
                     First Name:{" "} 
                     <input type="text" value={firstname}
-                        onChange={(e) => handleInputChange(e, "firstname")}
-                        data-testid="firstname-input"/>   
+                        onChange={(e) => handleInputChange(e, "firstname")}/>   
                     {
                     error.firstname &&
                     <p style={{display: "flex", alignItems: "center", marginLeft: "90px", border: "1px solid black", width: "10%"}}>
@@ -63,8 +62,7 @@ const DisplayName = () => {
 
                     Last Name:{" "} 
                     <input type="text" value={lastname}
-                        onChange={(e) => handleInputChange(e, "lastname")}
-                        data-testid="lastname-input"/>
+                        onChange={(e) => handleInputChange(e, "lastname")}/>
                     {
                     error.lastname &&
                     <p style={{display: "flex", alignItems: "center", marginLeft: "90px", border: "1px solid black", width: "10%"}}>
@@ -82,7 +80,7 @@ const DisplayName = () => {
 
                     {
                         submit && (
-                            <p data-testid="fullname-display">Full Name : {firstname} {lastname}</p>
+                            <form>Full Name : {firstname} {lastname}</form>
                         )
                     }
                                                     
