@@ -46,33 +46,34 @@ const DisplayName = () => {
                 onSubmit={handleSubmit}
                >
                 <p>
-
-                    First Name:{" "} 
+                    First Name:
                     <input type="text" value={firstname}
                         onChange={(e) => handleInputChange(e, "firstname")}/>   
                     {
                     error.firstname &&
                     <p style={{display: "flex", alignItems: "center", marginLeft: "90px", border: "1px solid black", width: "10%"}}>
-                        <RiFileWarningFill style={{color: "orange", padding: "2px"}}/>{" "} 
+                        <RiFileWarningFill style={{color: "orange", padding: "2px"}}/>
                         Please fill this field.
                     </p>
                     }  
 
                 </p>
+                <br/>
                 <p>
 
-                    Last Name:{" "} 
+                    Last Name:
                     <input type="text" value={lastname}
                         onChange={(e) => handleInputChange(e, "lastname")}/>
                     {
                     error.lastname &&
                     <p style={{display: "flex", alignItems: "center", marginLeft: "90px", border: "1px solid black", width: "10%"}}>
-                        <RiFileWarningFill style={{color: "orange", padding: "2px"}}/>{" "}
+                        <RiFileWarningFill style={{color: "orange", padding: "2px"}}/>
                         Please fill this field.
                     </p>
                     }  
 
                 </p>
+                <br/>
                 
                     <button
                         type="submit"
@@ -83,7 +84,7 @@ const DisplayName = () => {
                     {
                         submit && (
                             <div>
-                                <p>Full Name : {firstname} {lastname}</p>
+                                <p>Full Name: {firstname} {lastname}</p>
                             </div>
                             
                         )
