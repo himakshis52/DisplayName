@@ -14,7 +14,11 @@ const DisplayName = () => {
 
         e.preventDefault();
 
-        setSubmit(true)
+        if(firstname.trim() !== "" && lastname.trim() !== ""){
+            setSubmit(true);
+        }
+
+        
 
     }
     
@@ -25,41 +29,43 @@ const DisplayName = () => {
                 onSubmit={handleSubmit}
                 style={{ display: "flex", flexDirection:"column"}}
                >
+                <div>
                 <label htmlFor="firstname">
                     First Name:
                     </label>
                     
                     <input type="text" required={true} id="firstname"
-                        onChange={(e) => setFirstname(e.target.value)}/>   
-                      
+                        onChange={(e) => setFirstname(e.target.value)}/> 
+                </div>
 
-              
-              
-                <label htmlFor="lastname">
+                <div>
+                    <label htmlFor="lastname">
 
-                    Last Name:
+                        Last Name:
                     </label>
                     <input type="text" value={lastname} required={true} id="lastname"
-                        onChange={(e) => setLastname(e.target.value)}/>
-                    
-                
-                    <button
+                    onChange={(e) => setLastname(e.target.value)}/>
+                </div>
+                          
+                <button
                     style={{ width: "8%"}}
                         type="submit"
                     >
                         Submit
-                    </button>
+                </button>
 
-                    {
-                        submit && (
-                            <div>
-                                <h4>Full Name: {firstname} {lastname}</h4>
-                            </div>
-                            
-                        )
-                    }
-                                                    
             </form>
+
+                {
+                    submit && (
+                            
+                        <h4>Full Name: {firstname} {lastname}</h4>
+                            
+                            
+                    )
+                }
+                                                    
+            
         </>
     )
 }
