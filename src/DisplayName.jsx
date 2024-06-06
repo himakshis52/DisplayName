@@ -15,7 +15,7 @@ const DisplayName = () => {
 
         const newError = {
             firstname: firstname.trim() === "",
-            lastname: lastname.trim() === ""
+            lastname: lastname.trim() === "" && firstname.trim() !== ""
         };
 
         setError(newError);
@@ -48,12 +48,12 @@ const DisplayName = () => {
                 <p>
 
                     Last Name: <input type="text" onChange={(e) => setLastname(e.target.value)}/>
-                    {/* {
+                    {
                     error.lastname &&
                     <p style={{display: "flex", alignItems: "center", marginLeft: "90px", border: "1px solid black", width: "10%"}}>
                         <RiFileWarningFill style={{color: "orange", padding: "2px"}}/> Please fill this field.
                     </p>
-                    }   */}
+                    }  
 
                 </p>
                 
