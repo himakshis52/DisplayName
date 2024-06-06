@@ -13,8 +13,10 @@ const DisplayName = () => {
         const value = e.target.value;
         if (field === "firstname") {
             setFirstname(value);
+            setError({ ...error, firstname: value.trim() === "" });
         } else if (field === "lastname") {
             setLastname(value);
+            setError({ ...error, lastname: value.trim() === "" && firstname.trim() !== "" });
         }
     }
  
@@ -45,7 +47,7 @@ const DisplayName = () => {
                >
                 <p>
 
-                    First Name: {" "}
+                    First Name:{" "} 
                     <input type="text" value={firstname}
                         onChange={(e) => handleInputChange(e, "firstname")}/>   
                     {
@@ -58,7 +60,7 @@ const DisplayName = () => {
                 </p>
                 <p>
 
-                    Last Name: {" "}
+                    Last Name:{" "} 
                     <input type="text" value={lastname}
                         onChange={(e) => handleInputChange(e, "lastname")}/>
                     {
