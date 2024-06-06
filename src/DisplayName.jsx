@@ -36,7 +36,7 @@ const DisplayName = () => {
                >
                 <p>
 
-                    First Name: <input onChange={(e) => setFirstname(e.target.value)}/>   
+                    First Name: <input type="text" onChange={(e) => setFirstname(e.target.value)}/>   
                     {
                     error.firstname &&
                     <p style={{display: "flex", alignItems: "center", marginLeft: "90px", border: "1px solid black", width: "10%"}}>
@@ -47,7 +47,7 @@ const DisplayName = () => {
                 </p>
                 <p>
 
-                    Last Name: <input onChange={(e) => setLastname(e.target.value)}/>
+                    Last Name: <input type="text" onChange={(e) => setLastname(e.target.value)}/>
                     {/* {
                     error.lastname &&
                     <p style={{display: "flex", alignItems: "center", marginLeft: "90px", border: "1px solid black", width: "10%"}}>
